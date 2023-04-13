@@ -19,16 +19,20 @@ class _StatusState extends State<Status> {
         title: Text('Status'),
       ),
       body: Center(
-        child: Column(
-          children: [
-            Text('Application ID: ${Get.arguments[1]}'),
-            Row(
-              children: [
-                Text('Status: '),
-                Text(Get.arguments[0].toString().substring(1,(Get.arguments[0].toString().length - 1))),
-              ],
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              Text('Application ID: ${Get.arguments[1]}'),
+              const SizedBox(height: 30),
+              Row(
+                children: [
+                  Text('Status: '),
+                  Text(Get.arguments[0].toString().substring(1,(Get.arguments[0].toString().length - 1))),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

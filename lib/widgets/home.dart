@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
                     Get.snackbar(
                       'Error',
                       'Application ID cannot be empty',
-                      snackPosition: SnackPosition.BOTTOM,
+                      snackPosition: SnackPosition.TOP,
                       backgroundColor: Colors.red,
                       colorText: Colors.white,
                     );
@@ -64,6 +64,25 @@ class _HomeState extends State<Home> {
                     CircularProgressIndicator();
                     String status = await db.getStudentStatus(_appController.value.text);
                     print('Status: $status');
+                    if(status == '_Application Not Submitted_'){
+                      Get.snackbar(
+                        'Error',
+                        'Application ID not found',
+                        snackPosition: SnackPosition.TOP,
+                        backgroundColor: Color(0xff932e56),
+                        colorText: Colors.white,
+                      );
+                    }
+                    else if(status=='_Something Went Wrong, try again later_'){
+                      Get.snackbar(
+                        'Error',
+                        'Something Went Wrong, try again later',
+                        snackPosition: SnackPosition.TOP,
+                        backgroundColor: Color(0xff932e56),
+                        colorText: Colors.white,
+                      );
+                    }
+                    else
                     Get.toNamed('/status', arguments: [status, _appController.value.text]);
                   }
                   // AppDatabase db = AppDatabase();

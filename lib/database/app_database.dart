@@ -151,8 +151,6 @@ class AppDatabase {
     return newStudentFuture;
   }
 
-
-
 //  Update Student Record
   Future<String> updateStudentRecord(String reg_id, String fname, String lname,
       String father_name, String aadhar, String avatar) async {
@@ -237,13 +235,13 @@ String fetchStatus = '';
           // print(fetchStatus.toString().substring(1,(fetchStatus.toString().length - 1)));
           newStudentFuture = 'fet';
         } else {
-          fetchStatus = 'Application Not Submitted';
+          fetchStatus = '_Application Not Submitted_';
           newStudentFuture = 'nop';
         }
       });
     } catch (exc) {
       newStudentFuture = 'exc';
-      fetchStatus = 'Something Went Wrong, try again later';
+      fetchStatus = '_Something Went Wrong, try again later_';
       exc.toString();
     }
     // print(fetchStatus.toString());
